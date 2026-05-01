@@ -503,3 +503,7 @@ if __name__ == '__main__':
     # Running on 0.0.0.0 allows other devices on the same Wi-Fi (like your phone) 
     # to access the approval link.
     app.run(host='0.0.0.0', debug=True, port=5000)
+if __name__ == '__main__':
+    import os
+    port = int(os.environ.get("PORT", 10000))
+    app.run(host='0.0.0.0', port=port)
