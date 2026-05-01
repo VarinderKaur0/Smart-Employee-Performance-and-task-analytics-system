@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>SEPTAS - Smart Employee Performance and Task Analytic System</title>
+  <meta name="description" content="A premium smart employee performance and task analytic application.">
+
+  <!-- Fonts -->
+  <link
+    href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Outfit:wght@400;500;600;700;800&family=Plus+Jakarta+Sans:wght@500;600;700;800&display=swap"
+    rel="stylesheet">
+
+  <!-- XLSX Library for parsing Excel -->
+  <script src="https://cdn.jsdelivr.net/npm/xlsx@0.18.5/dist/xlsx.full.min.js"></script>
+
+  <!-- Lucide Icon Font fallback via UNPKG (we'll use lightweight SVGs but we can also use Feather icons via CDN) -->
+  <script src="https://unpkg.com/feather-icons"></script>
+
+  <!-- PDF Generation Libraries -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf-autotable/3.5.25/jspdf.plugin.autotable.min.js"></script>
+
+  <link rel="stylesheet" href="style.css?v=2">
+</head>
+
+<body>
+  <!-- Navigation Topbar -->
+  <nav class="navbar" id="navbar">
+    <div class="logo" onclick="navigateTo('home')">
+      <i data-feather="hexagon" class="logo-icon"></i>
+      SEPTAS
+    </div>
+    <div class="nav-right" style="display: flex; align-items: center; gap: 1rem;">
+      <button class="theme-toggle" id="themeToggle" onclick="toggleTheme()" title="Toggle Theme"
+        style="background: transparent; border: none; color: var(--text-primary); cursor: pointer; display: flex;">
+        <i data-feather="moon" id="themeIcon"></i>
+      </button>
+      <div class="dropdown">
+        <button class="dropdown-btn" id="dropdownBtn" style="padding: 0.5rem; border-color: transparent;">
+          <i data-feather="menu"></i>
+        </button>
+        <div class="dropdown-content" id="dropdownContent">
+          <a href="#" onclick="navigateTo('dashboard-login', {target: 'powerbi'}); return false;">Dashboards</a>
+          <a href="#" onclick="navigateTo('reports-hub'); return false;">Reports</a>
+          <a href="#" onclick="navigateTo('about'); return false;">About</a>
+        </div>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Main Container for View Routing -->
+  <main id="app-container" class="page-transition">
+    <!-- Views will be injected or toggled here -->
+  </main>
+
+  <script src="app.js?v=4"></script>
+  <script>
+    feather.replace();
+  </script>
+</body>
+
+</html>
